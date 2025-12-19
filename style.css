@@ -95,5 +95,15 @@
 .cv-btn:hover {
   background: #ffffff;
 }
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
 
 
