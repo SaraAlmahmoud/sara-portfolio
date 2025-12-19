@@ -1,1 +1,19 @@
+.section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00e5ff;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
 
