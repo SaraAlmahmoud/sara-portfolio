@@ -80,4 +80,20 @@
   opacity: 1;
   transform: translateY(0);
 }
+.cv-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: #00e5ff;
+  color: #0f2027;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cv-btn:hover {
+  background: #ffffff;
+}
+
 
