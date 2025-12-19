@@ -1,14 +1,130 @@
-body {
-  background: radial-gradient(circle at top, #0f2027, #020617);
-  color: #e5e7eb;
-  min-height: 100vh;
+/* =======================
+   GLOBAL RESET
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* =======================
+   DARK THEME (DEFAULT)
+======================= */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0f2027, #020617);
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* =======================
+   TECH BACKGROUND GLOW
+======================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,229,255,0.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(99,102,241,0.15), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(16,185,129,0.15), transparent 40%);
+  z-index: -1;
+}
+
+/* =======================
+   HERO SECTION
+======================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+/* =======================
+   LINKS & BUTTONS
+======================= */
+.links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.links a,
+.cv-btn {
+  text-decoration: none;
+  color: #0f2027;
+  background: #00e5ff;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.links a:hover,
+.cv-btn:hover {
+  background: #ffffff;
+}
+
+/* =======================
+   THEME TOGGLE
+======================= */
+#theme-toggle {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* =======================
+   SECTIONS
+======================= */
 .section {
   padding: 80px 20px;
   max-width: 900px;
   margin: auto;
   text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section h2 {
@@ -22,6 +138,10 @@ body {
   line-height: 1.7;
   opacity: 0.9;
 }
+
+/* =======================
+   SKILLS
+======================= */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -34,7 +154,6 @@ body {
   border-radius: 16px;
   padding: 20px;
   font-weight: 600;
-  text-align: center;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -44,6 +163,10 @@ body {
   transform: translateY(-8px);
   box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
 }
+
+/* =======================
+   PROJECTS
+======================= */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -76,66 +199,34 @@ body {
   font-size: 0.9rem;
   opacity: 0.8;
 }
-.section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
 
-.section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.cv-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  border-radius: 30px;
-  background: #00e5ff;
-  color: #0f2027;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.cv-btn:hover {
-  background: #ffffff;
-}
-#theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: white;
-}
+/* =======================
+   LIGHT MODE
+======================= */
 body.light {
   background: linear-gradient(135deg, #f8fafc, #e2e8f0);
   color: #0f172a;
 }
 
-body.light h1,
-body.light h2,
-body.light p {
+body.light .section h2 {
   color: #0f172a;
 }
 
 body.light .skill-card,
 body.light .project-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   border-color: rgba(0, 0, 0, 0.1);
 }
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  position: relative;
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
 }
-
-
