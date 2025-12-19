@@ -1,3 +1,9 @@
+body {
+  background: radial-gradient(circle at top, #0f2027, #020617);
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
 .section {
   padding: 80px 20px;
   max-width: 900px;
@@ -106,14 +112,21 @@
   color: white;
 }
 body.light {
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  color: #111;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color: #0f172a;
+}
+
+body.light h1,
+body.light h2,
+body.light p {
+  color: #0f172a;
 }
 
 body.light .skill-card,
 body.light .project-card {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.8);
   border-color: rgba(0, 0, 0, 0.1);
 }
+
 
 
