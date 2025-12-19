@@ -105,5 +105,15 @@
   cursor: pointer;
   color: white;
 }
+body.light {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #111;
+}
+
+body.light .skill-card,
+body.light .project-card {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
 
 
